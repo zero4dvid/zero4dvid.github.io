@@ -71,11 +71,39 @@
       margin-bottom: 20px;
       text-align: center;
     }
-    .video-grid {
+    /* 여기에 CSS 스타일 */
+    .video-grid-one {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;  /* 16px gap between columns */
+      padding: 20px;  
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    /* 여기에 CSS 스타일 */
+    .video-grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;  /* 16px gap between columns */
+      padding: 20px;  
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .video-grid-three {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 0.4em;
-      margin-top: 2em;
+      gap: 20px;  /* 16px gap between columns */
+      padding: 20px;  
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .video-grid-four {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;  /* 16px gap between columns */
+      padding: 20px;  
+      max-width: 1100px;
+      margin: 0 auto;
     }
     .video-item p {
       display: block;
@@ -231,10 +259,9 @@
     <div class="header">
       <h1 class="main-title">
         <span class="title-highlight">Zero4D</span>: Training-Free 4D Video Generation From Single Video<br>
-        Using Off-the-Shelf Video Diffusion Model
+        Using Off-the-Shelf Video Diffusion
       </h1>
       <br>
-
       <div class="publication-authors">
         <span class="author-block"><a href="https://sites.google.com/view/janghopark" target="_blank" style="color: inherit; text-decoration: none">Jangho Park</a></span> 
         <span class="author-block"><a href="https://star-kwon.github.io/" target="_blank" style="color: inherit; text-decoration: none">Taesung Kwon</a></span> 
@@ -254,7 +281,7 @@
            
         <a href="" target="_blank" style="text-decoration: none;">
           <button style="background-color: rgba(40, 41, 41, 0.65); color: white; border: 2px solid white; padding: 10px 20px; font-size: 18px; border-radius: 7px; cursor: pointer;">
-            Code
+            Code(Coming soon!)
           </button>
         </a>
       </div>
@@ -278,102 +305,151 @@
       </p>
 
        <!-- 비디오 페이지들 -->
-       <div class="video-page" data-page="0">
-        <div class="video-grid">
+      <div class="video-page" data-page="0">
+        <div class="video-grid-one">
+          <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/dy/pixar.mp4" type="video/mp4"></video></div>
+        </div>
+        <div class="video-grid-three">
           <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
             <source src="static/videos/ours/resized_videos_h264/resized_pixar.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
           <source src="static/videos/ours/resized_videos_h264/resized_pixar_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
             <source src="static/videos/ours/resized_videos_h264/resized_pixar_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_kitten_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
+        </div>
+      </div>
+
+      <!-- 비디오 페이지들 -->
+     <div class="video-page" data-page="0">
+       <div class="video-grid-one">
+         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/dy/steak.mp4" type="video/mp4"></video></div>
+       </div>
+       <div class="video-grid-three">
+         <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/dy/org/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
+         <source src="static/videos/dy/out/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/dy/in/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
+       </div>
+     </div>
+      <!-- 비디오 페이지들 -->
+     <div class="video-page" data-page="0">
+       <div class="video-grid-one">
+         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/dy/popcorn.mp4" type="video/mp4"></video></div>
+       </div>
+       <div class="video-grid-three">
+         <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/original/resized_videos_h264/resized_popcorn.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
+         <source src="static/videos/ours/resized_videos_h264/resized_popcorn_-15_0_cam23.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/ours/resized_videos_h264/resized_popcorn_15_0_cam23.mp4" type="video/mp4"></video></div>
+       </div>
+     </div>
+     <!-- 비디오 페이지들 -->
+    <div class="video-page" data-page="0">
+      <div class="video-grid-one">
+        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/old_couple.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="video-grid-three">
+        <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/org/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
+        <source src="static/videos/dy/out/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/in/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
+      </div>
+    </div>
+
+     <!-- 비디오 페이지들 -->
+    <div class="video-page" data-page="0">
+      <div class="video-grid-one">
+        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/kitten.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="video-grid-three">
+        <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
+        <source src="static/videos/ours/resized_videos_h264/resized_kitten_-15_0_cam23.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
           <source src="static/videos/ours/resized_videos_h264/resized_kitten_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_popcorn.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_popcorn_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_popcorn_15_0_cam23.mp4" type="video/mp4"></video></div>
-        </div>
       </div>
+    </div>
 
-      <div class="video-page" data-page="1" style="display: none;">
-        <div class="video-grid">
-          <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_cat_heaven.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_cat_heaven_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/ours/resized_videos_h264/resized_cat_heaven_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_astronaut_baby.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_astronaut_baby_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_astronaut_baby_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_suv_dust.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_suv_dust_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_suv_dust_15_0_cam23.mp4" type="video/mp4"></video></div>
-        </div>
+     <!-- 비디오 페이지들 -->
+    <div class="video-page" data-page="0">
+      <div class="video-grid-one">
+        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/bus.mp4" type="video/mp4"></video></div>
       </div>
+      <div class="video-grid-three">
+        <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/org/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
+        <source src="static/videos/dy/out/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
+          <source src="static/videos/dy/in/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
+      </div>
+    </div>
 
-      <div class="video-page" data-page="2" style="display: none;">
-        <div class="video-grid">
-          <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_fire.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_fire_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/ours/resized_videos_h264/resized_fire_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_shellgame.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_shellgame_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_shellgame_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_oldman.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_oldman_-15_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_oldman_15_cam23.mp4" type="video/mp4"></video></div>
-        </div>
-      </div>
+    <!-- 비디오 페이지들 -->
+   <div class="video-page" data-page="0">
+     <div class="video-grid-one">
+       <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+         <source src="static/videos/dy/cat_heaven.mp4" type="video/mp4"></video></div>
+     </div>
+     <div class="video-grid-three">
+       <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+         <source src="static/videos/original/resized_videos_h264/resized_cat_heaven.mp4" type="video/mp4"></video></div>
+       <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
+       <source src="static/videos/ours/resized_videos_h264/resized_cat_heaven_-15_0_cam23.mp4" type="video/mp4"></video></div>
+       <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
+        <source src="static/videos/ours/resized_videos_h264/resized_cat_heaven_15_0_cam23.mp4" type="video/mp4"></video></div>
+     </div>
+   </div>
 
-      <div class="video-page" data-page="3" style="display: none;">
-        <div class="video-grid">
-          <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_blackcat.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_blackcat_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">View from Orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/ours/resized_videos_h264/resized_blackcat_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_keyboard.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_keyboard_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_keyboard_15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/original/resized_videos_h264/resized_knife.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_knife_-15_0_cam23.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_knife_15_0_cam23.mp4" type="video/mp4"></video></div>
-        </div>
-      </div>
+   <!-- 비디오 페이지들 -->
+  <div class="video-page" data-page="0">
+    <div class="video-grid-one">
+      <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+        <source src="static/videos/dy/oldman.mp4" type="video/mp4"></video></div>
+    </div>
+    <div class="video-grid-three">
+      <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+        <source src="static/videos/original/resized_videos_h264/resized_oldman.mp4" type="video/mp4"></video></div>
+      <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
+      <source src="static/videos/ours/resized_videos_h264/resized_oldman_-15_cam23.mp4" type="video/mp4"></video></div>
+      <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
+       <source src="static/videos/ours/resized_videos_h264/resized_oldman_15_cam23.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+
+  <!-- 비디오 페이지들 -->
+ <div class="video-page" data-page="0">
+   <div class="video-grid-one">
+     <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+       <source src="static/videos/dy/steak_fire.mp4" type="video/mp4"></video></div>
+   </div>
+   <div class="video-grid-three">
+     <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+       <source src="static/videos/dy/org/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
+     <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
+     <source src="static/videos/dy/out/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
+     <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
+      <source src="static/videos/dy/in/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
+   </div>
+ </div>
 
       <!-- 페이지 버튼 -->
       <div class="nav-controls">
         <button id="prevBtn">‹</button>
-        <span id="pageIndicator">Page 1/3</span>
+        <span id="pageIndicator">Page 1</span>
         <button id="nextBtn">›</button>
       </div>
       
@@ -532,7 +608,7 @@
 
 
 
-    <div class="section" id="tldr">
+    <div class="section" id="more result">
       <div class="section-title">Method</div>
       <div style="text-align: center; margin: 20px 0;">
         <img src="static/img/main_pipe.jpg" alt="Reconstruction Pipeline of Zero4D" style="max-width: 70%; height: auto;">
@@ -561,7 +637,6 @@
 
     </div>
     <br><br><br>
-
 
     <div class="section" id="tldr">
       <div class="section-title">Comparisons</div>
@@ -745,7 +820,7 @@
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit up <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
+          <div class="vid-des">View from Orbit left <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
           <video muted="" autoplay="" loop="" style="width: 80%">
             <source src="static/videos/ours/resized_videos_h264/resized_kitten_-15_0_cam23.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -824,7 +899,7 @@
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit up <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
+          <div class="vid-des">View from Orbit left <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
           <video muted="" autoplay="" loop="" style="width: 80%">
             <source src="static/videos/ours/resized_videos_h264/resized_shellgame_-15_0_cam23.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -891,11 +966,203 @@
         </div>
       </div>
 
+    </div>
+    <div class="section" id="tldr">
+      <div class="section-title">More Results</div>
       
+      <!-- Video grid -->
+      <div class="video-grid-four" style="width: 90%; margin: 0 auto;">
+        <!-- Videos -->
+        <div class="video-item">
+          <div class="vid-des">Input video<br></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/boat/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <div class="vid-des">Fixed time 1<br></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/boat/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <div class="vid-des">Fixed time 2<br></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/boat/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <div class="vid-des">Novel view video<br></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/boat/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/train/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/train/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/train/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/train/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/man_guitar/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/man_guitar/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/man_guitar/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/man_guitar/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/bike/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/bike/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/bike/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/bike/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/jelly_fish/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/jelly_fish/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/jelly_fish/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/jelly_fish/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/running_beach/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/running_beach/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/running_beach/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/running_beach/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/two_dog/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/two_dog/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/two_dog/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/two_dog/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
+    </div>
 
   </div> 
+    
+    <br><br><br>
   
   
   <script>

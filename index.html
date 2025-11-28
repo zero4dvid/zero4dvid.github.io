@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)https://hyeonho99.github.io/zero4d/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zero4d</title>
-    <!-- 꼭 <head> 안에 넣어야 함 -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-  <!-- ✅ head에 추가 -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
@@ -71,7 +68,6 @@
       margin-bottom: 20px;
       text-align: center;
     }
-    /* 여기에 CSS 스타일 */
     .video-grid-one {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -80,7 +76,6 @@
       max-width: 700px;
       margin: 0 auto;
     }
-    /* 여기에 CSS 스타일 */
     .video-grid-two {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -118,7 +113,7 @@
     }
     .video-item-row {
       width: 100%;
-      max-width: 300px; /* 필요 시 적절히 조절 */
+      max-width: 300px; 
     }
   
     video {
@@ -173,7 +168,6 @@
     /* Optional: add a subtle text shadow for extra depth */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-    /* 여기에 CSS 스타일 */
   .video-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -232,7 +226,7 @@
 
   .video-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1000px;
     margin: 0 auto;
@@ -251,15 +245,89 @@
     display: block;
   }
 
+  /* Highlight first column with semi-transparent sky-blue background */
+  .fixed-highlight {
+    position: relative;
+    background: rgba(135, 206, 250, 0.5); /* skyblue @ 50% */
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .fixed-highlight video { border-radius: 8px; }
+  .fixed-highlight .fixed-label {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    font-size: 14px;
+    color: #04395e;
+    background: rgba(255,255,255,0.65);
+    padding: 2px 8px;
+    border-radius: 6px;
+    pointer-events: none;
+  }
+
+  /* Row-wide highlight and label (renamed to fixed_novel_view) */
+  .fixed_novel_view { position: relative; background: rgba(135,206,250,0.5); border-radius: 12px; padding: 12px 12px 40px; }
+  .fixed_novel_view .row-label {
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    font-weight: 800; font-size: 16px; color: #04395e;
+    background: rgba(255,255,255,0.65); padding: 3px 10px; border-radius: 8px; pointer-events: none;
+  }
+
+
+  /* Bullet time row wrapper */
+  .bullet_time_1 { position: relative; background: rgba(248, 248, 248, 0.35); border-radius: 12px; padding: 12px 12px 36px; }
+  .bullet_time_1 .row-label { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-weight: 800; font-size: 16px; color: #04395e; background: rgba(255,255,255,0.65); padding: 3px 10px; border-radius: 8px; pointer-events: none; }
+
+  /* Section toggle styles */
+  .section-toggle-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .toggle-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .toggle-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .toggle-button.active {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    transform: translateY(-1px);
+  }
+  
+  .comparison-section {
+    display: none;
+  }
+  
+  .comparison-section.active {
+    display: block;
+  }
+
   </style>
+
 </head>
 <body data-new-gr-c-s-check-loaded="14.1226.0" data-gr-ext-installed="">
   <div class="container">
     <!-- Header without extra padding or border -->
     <div class="header">
       <h1 class="main-title">
-        <span class="title-highlight">Zero4D</span>: Training-Free 4D Video Generation From Single Video<br>
-        Using Off-the-Shelf Video Diffusion
+        <span class="title-highlight">Zero4D</span>: Training-Free 4D Video Generation From Single Video <br>
+        Using Off-the-Shelf Video Diffusion Models
       </h1>
       <br>
       <div class="publication-authors">
@@ -272,8 +340,8 @@
       </div>
   
       <br>
-      <div class="publication-authors">
-        <a href="https://arxiv.org/abs/2503.22622" target="_blank" style="text-decoration: none;">
+      <!-- <div class="publication-authors">
+        <a href="" target="_blank" style="text-decoration: none;">
           <button style="background-color: rgba(40, 41, 41, 0.65); color: white; border: 2px solid white; padding: 10px 20px; font-size: 18px; border-radius: 7px; cursor: pointer;">
             Arxiv
           </button>
@@ -281,10 +349,10 @@
            
         <a href="" target="_blank" style="text-decoration: none;">
           <button style="background-color: rgba(40, 41, 41, 0.65); color: white; border: 2px solid white; padding: 10px 20px; font-size: 18px; border-radius: 7px; cursor: pointer;">
-            Code(Coming soon!)
+            Code
           </button>
         </a>
-      </div>
+      </div> -->
     </div>
     
     <p style="text-align: center; font-size: 20px; margin-bottom: 2em; color: #555;">
@@ -301,26 +369,45 @@
       <br><br>
 
       <p style="font-size: 30px; font-weight: bold;">
-        (a) <u>Novel view video</u>: Generating new videos from <i>target camera views</i>.
+        (a) <u>Novel-view video</u>: Generating new videos from <i>target camera views</i>.
+      </p>
+      <p style="font-size: 30px; font-weight: bold;">
+        <span style="font-size: 24px; font-style: italic;">(Dynamic view videos and fixed view videos are synchronized)</span>.
       </p>
 
-       <!-- 비디오 페이지들 -->
+      <!-- video pages -->
+     <div class="video-page" data-page="0">
+       <div class="video-grid-one">
+         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/dy/dy_frog.mp4" type="video/mp4"></video></div>
+       </div>
+       <div class="video-grid-three">
+         <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/ours/resized_videos_h264/resized_frog.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
+         <source src="static/videos/ours/resized_videos_h264/frog_-15_0_cam24.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
+           <source src="static/videos/ours/resized_videos_h264/frog_15_0_cam24.mp4" type="video/mp4"></video></div>
+       </div>
+     </div>
+     
+       <!-- video pages -->
       <div class="video-page" data-page="0">
         <div class="video-grid-one">
           <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/dy/pixar.mp4" type="video/mp4"></video></div>
+            <source src="static/videos/dy/dy_pixar.mp4" type="video/mp4"></video></div>
         </div>
         <div class="video-grid-three">
           <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
             <source src="static/videos/ours/resized_videos_h264/resized_pixar.mp4" type="video/mp4"></video></div>
           <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_pixar_-15_0_cam23.mp4" type="video/mp4"></video></div>
+          <source src="static/videos/ours/resized_videos_h264/pixar_-15_0_cam24.mp4" type="video/mp4"></video></div>
           <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/ours/resized_videos_h264/resized_pixar_15_0_cam23.mp4" type="video/mp4"></video></div>
+            <source src="static/videos/ours/resized_videos_h264/pixar_15_0_cam24.mp4" type="video/mp4"></video></div>
         </div>
       </div>
 
-      <!-- 비디오 페이지들 -->
+      <!-- video pages -->
      <div class="video-page" data-page="0">
        <div class="video-grid-one">
          <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -335,7 +422,7 @@
            <source src="static/videos/dy/in/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
        </div>
      </div>
-      <!-- 비디오 페이지들 -->
+      <!-- video pages -->
      <div class="video-page" data-page="0">
        <div class="video-grid-one">
          <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -350,7 +437,7 @@
            <source src="static/videos/ours/resized_videos_h264/resized_popcorn_15_0_cam23.mp4" type="video/mp4"></video></div>
        </div>
      </div>
-     <!-- 비디오 페이지들 -->
+     <!-- video pages -->
     <div class="video-page" data-page="0">
       <div class="video-grid-one">
         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -366,7 +453,7 @@
       </div>
     </div>
 
-     <!-- 비디오 페이지들 -->
+     <!-- video pages -->
     <div class="video-page" data-page="0">
       <div class="video-grid-one">
         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -382,7 +469,7 @@
       </div>
     </div>
 
-     <!-- 비디오 페이지들 -->
+     <!-- video pages -->
     <div class="video-page" data-page="0">
       <div class="video-grid-one">
         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -398,7 +485,7 @@
       </div>
     </div>
 
-    <!-- 비디오 페이지들 -->
+    <!-- video pages -->
    <div class="video-page" data-page="0">
      <div class="video-grid-one">
        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -414,7 +501,7 @@
      </div>
    </div>
 
-   <!-- 비디오 페이지들 -->
+   <!-- video pages -->
   <div class="video-page" data-page="0">
     <div class="video-grid-one">
       <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -430,7 +517,7 @@
     </div>
   </div>
 
-  <!-- 비디오 페이지들 -->
+  <!-- video pages -->
  <div class="video-page" data-page="0">
    <div class="video-grid-one">
      <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
@@ -446,40 +533,41 @@
    </div>
  </div>
 
-      <!-- 페이지 버튼 -->
+      <!-- page buttons -->
       <div class="nav-controls">
         <button id="prevBtn">‹</button>
         <span id="pageIndicator">Page 1</span>
         <button id="nextBtn">›</button>
       </div>
       
-  
       <br><br>
       
-      <p style="font-size: 30px; font-weight: bold;">
-        (b) <u>Bullet time video</u>: Generating a time-frozen video at a single time point</i>.
-      </p>
-      <!-- 썸네일 선택 영역 -->
+      <!-- thumbnail selection area -->
 
-      <!-- 각 비디오 세트 -->
+      <p style="font-size: 30px; font-weight: bold;">
+        (b) <u>Bullet time video</u>: Generating synchronized time-frozen videos at multiple time indices.</i>
+      </p>
+
+
+      <!-- each video set -->
       <div id="video-grid-sets">
         <div class="video-set" id="set-0">
           <div class="video-grid">
             <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_-15/pixar_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+              <source src="static/videos/bullet_time/pixar_-15/frame0005.mp4" type="video/mp4"></video></div>
             <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_-15/pixar_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+              <source src="static/videos/bullet_time/pixar_-15/frame0015.mp4" type="video/mp4"></video></div>
 
             <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_-15/pixar_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+              <source src="static/videos/bullet_time/pixar_-15/frame0020.mp4" type="video/mp4"></video></div>
 
             <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_15/pixar_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+              <source src="static/videos/bullet_time/pixar_15/frame0005.mp4" type="video/mp4"></video></div>
             <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_15/pixar_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+              <source src="static/videos/bullet_time/pixar_15/frame0015.mp4" type="video/mp4"></video></div>
 
             <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_15/pixar_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+              <source src="static/videos/bullet_time/pixar_15/frame0020.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
@@ -492,6 +580,31 @@
         </div>
 
         <div class="video-set" id="set-1">
+          <div class="video-grid">
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
+              <source src="static/videos/bullet_time/frog_-15/frog_frame0001.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
+              <source src="static/videos/bullet_time/frog_-15/frog_frame0005.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
+              <source src="static/videos/bullet_time/frog_-15/frog_frame0023.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
+                <source src="static/videos/bullet_time/frog_15/frog_frame0001.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
+                <source src="static/videos/bullet_time/frog_15/frog_frame0005.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
+                <source src="static/videos/bullet_time/frog_15/frog_frame0023.mp4" type="video/mp4"></video></div>
+
+          </div>
+          <div class="single-video-row">
+            <div class="video-item-row"><div class="video-label">Input Video</div>
+              <video muted autoplay loop style="width: 100%">
+                <source src="static/videos/ours/resized_videos_h264/resized_frog.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-set" id="set-2">
           <div class="video-grid">
             <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
               <source src="static/videos/bullet_time/oldman_-15_0/oldman_frame5_resized_resized.mp4" type="video/mp4"></video></div>
@@ -516,7 +629,7 @@
           </div>
         </div>
 
-        <div class="video-set" id="set-2">
+        <div class="video-set" id="set-3">
           <div class="video-grid">
             <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
               <source src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame5.mp4" type="video/mp4"></video></div>
@@ -541,7 +654,7 @@
           </div>
         </div>
 
-        <div class="video-set" id="set-3">
+        <div class="video-set" id="set-4">
           <div class="video-grid">
             <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
               <source src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame5_resized_resized.mp4" type="video/mp4"></video></div>
@@ -567,7 +680,7 @@
         </div>
 
         
-        <div class="video-set" id="set-4">
+        <div class="video-set" id="set-5">static/img/astronaut_baby.jpg
           
           <div class="video-grid">
             
@@ -587,7 +700,7 @@
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%">
+              <video muted autoplay loop style="width: 100%"∏>
                 <source src="static/videos/original/resized_videos_h264/resized_clock.mp4" type="video/mp4">
               </video>
             </div>
@@ -596,10 +709,11 @@
 
       <div class="thumbnail-row">
         <img class="thumbnail" src="static/img/pixar.jpg" data-target="set-0">
-        <img class="thumbnail" src="static/img/oldman.jpg" data-target="set-1">
-        <img class="thumbnail" src="static/img/cat_heaven.jpg" data-target="set-2">
-        <img class="thumbnail" src="static/img/astronaut_baby.jpg" data-target="set-3">
-        <img class="thumbnail" src="static/img/clock.jpg" data-target="set-4">
+        <img class="thumbnail" src="static/img/frog.png" data-target="set-1">
+        <img class="thumbnail" src="static/img/oldman.jpg" data-target="set-2">
+        <img class="thumbnail" src="static/img/cat_heaven.jpg" data-target="set-3">
+        <img class="thumbnail" src="static/img/astronaut_baby.jpg" data-target="set-4">
+        <img class="thumbnail" src="static/img/clock.jpg" data-target="set-5">
       </div>
 
     </div>
@@ -611,364 +725,423 @@
     <div class="section" id="more result">
       <div class="section-title">Method</div>
       <div style="text-align: center; margin: 20px 0;">
-        <img src="static/img/main_pipe.jpg" alt="Reconstruction Pipeline of Zero4D" style="max-width: 70%; height: auto;">
+        <img src="static/img/main_pipe.svg" alt="Reconstruction Pipeline of Zero4D" style="max-width: 70%; height: auto;">
         <div style="font-size: 16px; margin-top: 8px;"></div>
       </div>
       
       
       <p style="width: 71%; text-align: left; font-size: 18px; margin: 0 auto;">
         <!-- <span class="title-highlight">Zero4D</span>  -->
-        <b>Reconstruction pipeline of Zero4D:</b>  
-        <b>(a) Key frame generation step:</b>  
-        <b>(a1)</b> Given a fixed-viewpoint grayscale input video, we generate synchronized multi-view videos using the I2V diffusion model.  
-        <b>(a2)</b> We first synthesize key frames of the 4D grid through diffusion sampling, guided by warped views.  
-        <b>(a3)</b> Next, we generate the end-view video frames using a process similar to (a2), guided by warped views.  
-        <b>(a4)</b> Finally, we complete the rightmost column using diffusion-based interpolation sampling.  
+        <b>Generation pipeline of Zero4D:</b>  
+        <b>(a) Key frame generation step:</b> Starting from the input video(shown as the gray-shaded row), we sequentially generate boundary frames—novel view synthesis, end-view video generation, and end-frame view synthesis—where each step leverages the results of the previous one.
         
         <b>(b) Spatio-temporal bidirectional interpolation step:</b>  
-        Starting from the initial noise in (a4), we denoise the remaining frames through a camera-axis interpolation denoising step.  
-        At this stage, the noisy frame <i>x<sub>t</sub>[:, i]</i> is updated based on edge frames along the camera axis.  
-        Then, the time-axis interpolation step follows, where perturbed frames are denoised through interpolation along the time axis of the 4D grid, conditioned on edge frames in the time axis.  
-        The spatio-temporal bidirectional sampling alternates between camera-axis interpolation and time-axis interpolation, progressively refining noisy latents into clean frames.  
-        Through this process, we obtain globally coherent spatio-temporal 4D grid videos.
+        Starting from the noisy frames, we alternately perform camera-axis and time-axis interpolation, each conditioned on boundary frames, to progressively denoise the 4D grid. Through this bidirectional process, noisy latents are refined into globally coherent spatio-temporal videos.
       </p>
       
       <br>
 
     </div>
-    <br><br><br>
+    <br>
 
-    <div class="section" id="tldr">
-      <div class="section-title">Comparisons</div>
+    <div class="section" id="comparison">
+      <div class="section-title">Comparison with baselines</div>
       
-      <p style="width: 100%; text-align: center; font-size: 18px; margin: 0 auto;">
-        For <b> <u>Novel view generation</u></b>, we compare with Generative Camera Dolly, and Stable Video 4D which employs the same input frame as ours.
-      </p>
-      <br>
-
-
-      <!-- parrot ours -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      
+      <!-- (a) Fixed from bullet time video - old man -->
+    <div id="oldman-section-a">
+      <!-- Video grid old man -->
+      <div class="video-grid-four fixed_novel_view" style="width: 90%; margin: 0 auto;">
+        <div class="row-label">Fixed novel-view video from bullet time videos</div>
+        <!-- Videos -->
         <div class="video-item">
-          <div class="vid-des">Input video <br> &nbsp;</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_pixar.mp4" type="video/mp4">
+          <div class="vid-des"><mark><span class="title-highlight">Zero4d</span> <b>(Ours)</b></mark></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit left <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_pixar_-15_0_cam23.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryCrafter</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit right <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_pixar_15_0_cam23.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-
-      <!-- parrot gcd -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
-        <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_pixar.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryAttention</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/fixed_view/trjattn_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_pixar_-15.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_pixar_15.mp4" type="video/mp4">
+          <div class="vid-des"><b>CameraCtrl</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <!-- parrot cogvideox -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      <!-- Arrow indicating generation direction -->
+      <div style="text-align: center; margin: 5px 0;">
+        <img src="static/img/uparrow.svg" alt="Arrow" style="width: 60px; height: 40px;">
+      </div>
+
+        <!-- Video grid old man bullet 1 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label"> Bullet time video - Time 1</div>
         <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_pixar.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/zero4d_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_pixar_left_v001.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_pixar_right_v001.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/trjattn_frame05.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/camctrl_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
-      <br><br><br>
-
-
-
-      <!-- car-roundabout ours -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label"> Bullet time video - Time 2</div>
+        <!-- Video grid old man bullet 2  -->
         <div class="video-item">
-          <div class="vid-des">Input video <br> &nbsp;</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_astronaut_baby.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/zero4d_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit left <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_astronaut_baby_-15_0_cam23.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit right <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_astronaut_baby_15_0_cam23.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-
-      <!-- car-roundabout gcd -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
-        <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_astronaut_baby.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/trjattn_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_artronaut_baby_-15.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_artronaut_baby_15.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/old_man/bullet_time/camctrl_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <!-- car-roundabout cogvideox -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      <!-- Videos astronaut baby -->
+      <div class="video-grid-four fixed_novel_view" style="width: 90%; margin: 0 auto;">
+        <div class="row-label">Fixed novel-view video from bullet time videos</div>
         <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_astronaut_baby.mp4" type="video/mp4">
+          <div class="vid-des"><mark><span class="title-highlight">Zero4D</span> <b>(Ours)</b></mark></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_astronaut_baby_left_v001.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryCrafter</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_astronaut_baby_right_v001.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <br><br><br>
-
-
-
-      <!-- blackswan ours -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
-        <div class="video-item">
-          <div class="vid-des">Input video <br> &nbsp;</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryAttention</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/fixed_view/trjattn_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit left <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_kitten_-15_0_cam23.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <div class="vid-des">View from Orbit right <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_kitten_15_0_cam23.mp4" type="video/mp4">
+          <div class="vid-des"><b>CameraCtrl</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <!-- blackswan gcd -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      <div style="text-align: center; margin: 5px 0;">
+        <img src="static/img/uparrow.svg" alt="Arrow" style="width: 60px; height: 40px;">
+      </div>
+
+
+      <!-- Video grid astronaut baby bullet 1 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label"> Bullet time video - Time 1</div>
         <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/zero4d_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_kitten_-15.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_kitten_15.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjattn_frame05.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/camctrl_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <!-- blackswan cogvideox -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      <!-- Videos astronaut baby bullet 2 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label"> Bullet time video - Time 2</div>
         <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/zero4d_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_kitten_left_v001.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjcrft_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_kitten_right_v001.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <br>
-
-      <!-- blackswan ours -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
-        <div class="video-item">
-          <div class="vid-des">Input video <br> &nbsp;</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_shellgame.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjattn_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">View from Orbit left <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_shellgame_-15_0_cam23.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <div class="vid-des">View from Orbit right <br> <mark><span class="title-highlight">zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/ours/resized_videos_h264/resized_shellgame_15_0_cam23.mp4" type="video/mp4">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/astronaut_baby/bullet_time/camctrl_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <!-- blackswan gcd -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+      <!-- Videos cat heaven -->
+      <div class="video-grid-four fixed_novel_view" style="width: 90%; margin: 0 auto;">
+        <div class="row-label">Fixed novel-view video from bullet time videos</div>
         <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_shellgame.mp4" type="video/mp4">
+          <div class="vid-des"><mark><span class="title-highlight">Zero4D</span> <b>(Ours)</b></mark></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_shell_game_-15.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryCrafter</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Generative Camera Dolly</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/gcd/resized_videos_h264/resized_shell_game_15.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryAttention</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/fixed_view/trjattn_cam20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <div class="vid-des"><b>CameraCtrl</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/fixed_view/camctrl_cam20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin: 5px 0;">
+        <img src="static/img/uparrow.svg" alt="Arrow" style="width: 60px; height: 40px;">
+      </div>
+
+
+      <!-- Video grid astronaut baby bullet 1 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label">Bullet time video - Time 1</div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/zero4d_frame05.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/trjattn_frame05.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/camctrl_frame05.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
+      <!-- Videos astronaut baby bullet 2 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label"> Bullet time video - Time 2</div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/zero4d_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/trjattn_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/cat_heaven/bullet_time/camctrl_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      <!-- blackswan cogvideox -->
-      <div class="video-grid" style="width: 90%; margin: 0 auto;">
-        <!-- First row -->
+       <!-- Videos popcorn -->
+       <div class="video-grid-four fixed_novel_view" style="width: 90%; margin: 0 auto;">
+        <div class="row-label">Fixed novel-view video from bullet time videos</div>
         <div class="video-item">
-          <div class="vid-des">Input video</div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/original/resized_videos_h264/resized_shellgame.mp4" type="video/mp4">
+          <div class="vid-des"><mark><span class="title-highlight">Zero4D</span> <b>(Ours)</b></mark></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_shellgame_left_v001.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryCrafter</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des"><mark><b>Stable Video 4D</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 80%">
-            <source src="static/videos/sv4d/resized_videos_h264/resized_shellgame_right_v001.mp4" type="video/mp4">
+          <div class="vid-des"><b>TrajectoryAttention</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/fixed_view/trjattn_cam20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <div class="vid-des"><b>CameraCtrl</b></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-    </div>
-    <div class="section" id="tldr">
-      <div class="section-title">More Results</div>
+      <div style="text-align: center; margin: 5px 0;">
+        <img src="static/img/uparrow.svg" alt="Arrow" style="width: 60px; height: 40px;">
+      </div>
+
+      <!-- Video grid popcorn bullet 1 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label">Bullet time video - Time 1</div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/zero4d_frame00.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/trjcrft_frame00.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/trjattn_frame00.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/camctrl_frame00.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
+      <!-- Videos popcorn bullet 2 -->
+      <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
+        <div class="row-label"> Bullet time video - Time 2</div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/zero4d_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/trjattn_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/comparison/popcorn/bullet_time/camctrl_frame20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div> <!-- End of oldman-section-a -->
+
+    <br><br><br><br>
+    <!-- </div> End of Comparison with other methods section -->
+
+    <div class="section" id="more-results">
+      <div class="section-title">More Results <br><span style="font-size: 20px; font-style: italic;">(Bullet time videos and novel-view videos are synchronized)</span></div>
+      <!-- <p style="font-size: 30px; font-weight: bold;">
+        <span style="font-size: 20px; font-style: italic;">(Novel-view videos and bullet time videos are synchronized)</span>.
+      </p> -->
       
       <!-- Video grid -->
       <div class="video-grid-four" style="width: 90%; margin: 0 auto;">
@@ -976,26 +1149,104 @@
         <div class="video-item">
           <div class="vid-des">Input video<br></div>
           <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/boat/org/org.mp4" type="video/mp4">
+            <source src="static/videos/more_results/new_jpeg/surf/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des">Fixed time 1<br></div>
           <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/boat/time1/time1.mp4" type="video/mp4">
+            <source src="static/videos/more_results/new_jpeg/surf/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des">Fixed time 2<br></div>
           <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/surf/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <div class="vid-des">Novel-view video<br></div>
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/surf/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/cat_doll/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/cat_doll/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/cat_doll/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/cat_doll/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/clock/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/clock/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/clock/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/clock/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/boat/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
+            <source src="static/videos/more_results/new_jpeg/boat/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted="" autoplay="" loop="" style="width: 100%">
             <source src="static/videos/more_results/new_jpeg/boat/time2/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <div class="vid-des">Novel view video<br></div>
           <video muted="" autoplay="" loop="" style="width: 100%">
             <source src="static/videos/more_results/new_jpeg/boat/new/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -1079,33 +1330,7 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        
-        <!-- Videos -->
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/jelly_fish/org/org.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/jelly_fish/time1/time1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/jelly_fish/time2/time2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/jelly_fish/new/new.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        
+
         <!-- Videos -->
         <div class="video-item">
           <video muted="" autoplay="" loop="" style="width: 100%">
@@ -1131,32 +1356,7 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        
-        <!-- Videos -->
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/two_dog/org/org.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/two_dog/time1/time1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/two_dog/time2/time2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/two_dog/new/new.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+      
       </div>
     </div>
 
@@ -1210,7 +1410,7 @@
         p.style.display = (i === index) ? "block" : "none";
       });
 
-      indicator.textContent = `Page ${index + 1}`;
+      indicator.textContent = `Page ${index + 1} / ${pages.length}`;
       prev.disabled = index === 0;
       next.disabled = index === pages.length - 1;
     }
@@ -1234,7 +1434,6 @@
     const thumbnails = document.querySelectorAll('.thumbnail');
     const videoSets = document.querySelectorAll('.video-set');
 
-    // ✅ 페이지 로드시: 첫 번째 set만 보이게 설정
     window.addEventListener('DOMContentLoaded', () => {
       videoSets.forEach((set, index) => {
         set.style.display = (index === 0) ? 'block' : 'none';
@@ -1248,7 +1447,6 @@
       });
     });
 
-    // ✅ 썸네일 클릭 시 동작
     thumbnails.forEach(thumbnail => {
       thumbnail.addEventListener('click', () => {
         const targetId = thumbnail.dataset.target;
@@ -1257,7 +1455,6 @@
           set.style.display = (set.id === targetId) ? 'block' : 'none';
         });
 
-        // 선택한 set의 모든 비디오 초기화 후 재생
         const currentVideos = document.querySelector(`#${targetId}`).querySelectorAll('video');
         currentVideos.forEach(video => {
           video.pause();

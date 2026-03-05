@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
   <style>
@@ -68,6 +69,37 @@
       margin-bottom: 20px;
       text-align: center;
     }
+    /* Publication buttons */
+    .publication-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .pub-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background-color: #4a4a4a;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .pub-button:hover {
+      background-color: #5a5a5a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .pub-button i {
+      font-size: 18px;
+    }
+    /* 여기에 CSS 스타일 */
     .video-grid-one {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -76,6 +108,7 @@
       max-width: 700px;
       margin: 0 auto;
     }
+    /* 여기에 CSS 스타일 */
     .video-grid-two {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -113,7 +146,7 @@
     }
     .video-item-row {
       width: 100%;
-      max-width: 300px; 
+      max-width: 300px; /* 필요 시 적절히 조절 */
     }
   
     video {
@@ -326,33 +359,36 @@
     <!-- Header without extra padding or border -->
     <div class="header">
       <h1 class="main-title">
-        <span class="title-highlight">Zero4D</span>: Training-Free 4D Video Generation From Single Video <br>
-        Using Off-the-Shelf Video Diffusion Models
+        <span class="title-highlight">Zero4D</span>: Training-Free 4D Video Generation From Single Video<br>
+        Using Off-the-Shelf Video Diffusion
       </h1>
       <br>
+
       <div class="publication-authors">
-        <span class="author-block"><a href="https://sites.google.com/view/janghopark" target="_blank" style="color: inherit; text-decoration: none">Jangho Park</a></span> 
-        <span class="author-block"><a href="https://star-kwon.github.io/" target="_blank" style="color: inherit; text-decoration: none">Taesung Kwon</a></span> 
-        <span class="author-block"><a href="https://bispl.weebly.com/professor.html" target="_blank" style="color: inherit; text-decoration: none">Jong Chul Ye</a></span> 
+        <span class="author-block" style="font-size: 24px;"><a href="https://sites.google.com/view/janghopark" target="_blank" style="color: inherit; text-decoration: none">Jangho Park</a></span> 
+        <span class="author-block" style="font-size: 24px;"><a href="https://star-kwon.github.io/" target="_blank" style="color: inherit; text-decoration: none">Taesung Kwon</a></span> 
+        <span class="author-block" style="font-size: 24px;"><a href="https://bispl.weebly.com/professor.html" target="_blank" style="color: inherit; text-decoration: none">Jong Chul Ye</a></span> 
         <br>
-        <span class="author-block" style="padding-top: 5px;">    KAIST AI</span>    
+        <span class="author-block" style="padding-top: 10px; font-size: 24px;">    KAIST AI</span>    
         <br>
       </div>
+
+
+      <div class="section-title" style="font-weight: 500; font-size: 30px; color: rgb(75, 75, 219);">
+        CVPR 2026 Findings
+      </div>
+      
+      <div class="publication-buttons">
+        <a href="https://arxiv.org/abs/2503.22622" class="pub-button" target="_blank">
+          <i class="fas fa-file-pdf"></i>
+          <span>ArXiv</span>
+        </a>
+        <a href="#" class="pub-button" target="_blank">
+          <i class="fab fa-github"></i>
+          <span>Code (Coming Soon!)</span>
+        </a>
+      </div>
   
-      <br>
-      <!-- <div class="publication-authors">
-        <a href="" target="_blank" style="text-decoration: none;">
-          <button style="background-color: rgba(40, 41, 41, 0.65); color: white; border: 2px solid white; padding: 10px 20px; font-size: 18px; border-radius: 7px; cursor: pointer;">
-            Arxiv
-          </button>
-        </a>
-           
-        <a href="" target="_blank" style="text-decoration: none;">
-          <button style="background-color: rgba(40, 41, 41, 0.65); color: white; border: 2px solid white; padding: 10px 20px; font-size: 18px; border-radius: 7px; cursor: pointer;">
-            Code
-          </button>
-        </a>
-      </div> -->
     </div>
     
     <p style="text-align: center; font-size: 20px; margin-bottom: 2em; color: #555;">
@@ -1434,6 +1470,7 @@
     const thumbnails = document.querySelectorAll('.thumbnail');
     const videoSets = document.querySelectorAll('.video-set');
 
+    // ✅ 페이지 로드시: 첫 번째 set만 보이게 설정
     window.addEventListener('DOMContentLoaded', () => {
       videoSets.forEach((set, index) => {
         set.style.display = (index === 0) ? 'block' : 'none';
@@ -1447,6 +1484,7 @@
       });
     });
 
+    // ✅ 썸네일 클릭 시 동작
     thumbnails.forEach(thumbnail => {
       thumbnail.addEventListener('click', () => {
         const targetId = thumbnail.dataset.target;
@@ -1455,6 +1493,7 @@
           set.style.display = (set.id === targetId) ? 'block' : 'none';
         });
 
+        // 선택한 set의 모든 비디오 초기화 후 재생
         const currentVideos = document.querySelector(`#${targetId}`).querySelectorAll('video');
         currentVideos.forEach(video => {
           video.pause();

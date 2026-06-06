@@ -3,6 +3,9 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zero4d</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
@@ -352,6 +355,49 @@
     display: block;
   }
 
+  /* ============================================================
+     Mobile / tablet responsiveness.
+     Applies only at <=768px; the desktop layout above is untouched.
+     ============================================================ */
+  @media (max-width: 768px) {
+    .container { width: auto; margin: 16px 10px; padding: 12px; }
+    .main-title { font-size: 1.7em; }
+    .section { margin-bottom: 2em; padding: 0.5em 0.3em; }
+    .section-title { font-size: 22px; }
+
+    /* Collapse multi-column video grids so each clip stays large enough */
+    .video-grid-two,
+    .video-grid-three,
+    .video-grid-four,
+    .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+    .video-grid-one { padding: 10px; }
+
+    .video-label { font-size: 15px; }
+    .vid-des { font-size: 14px; }
+    .pub-button { padding: 10px 18px; font-size: 14px; }
+    .nav-controls { gap: 12px; }
+    .nav-controls button { font-size: 1.2rem; padding: 8px 14px; }
+    .thumbnail-row { flex-wrap: wrap; gap: 12px; }
+    .thumbnail { width: 90px; }
+
+    /* Scale down oversized inline heading/author text */
+    [style*="font-size: 30px"] { font-size: 21px !important; }
+    [style*="font-size: 24px"] { font-size: 17px !important; }
+  }
+
+  @media (max-width: 480px) {
+    .main-title { font-size: 1.35em; }
+    .section-title { font-size: 18px; }
+
+    /* One clip per row on phones — full width, never squished */
+    .video-grid-three,
+    .video-grid-four,
+    .video-grid { grid-template-columns: 1fr; }
+
+    [style*="font-size: 30px"] { font-size: 19px !important; }
+    [style*="font-size: 24px"] { font-size: 15px !important; }
+  }
+
   </style>
 
 </head>
@@ -415,158 +461,158 @@
       <!-- video pages -->
      <div class="video-page" data-page="0">
        <div class="video-grid-one">
-         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/dy/dy_frog.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/dy/dy_frog.mp4" type="video/mp4"></video></div>
        </div>
        <div class="video-grid-three">
-         <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/ours/resized_videos_h264/resized_frog.mp4" type="video/mp4"></video></div>
-         <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-         <source src="static/videos/ours/resized_videos_h264/frog_-15_0_cam24.mp4" type="video/mp4"></video></div>
-         <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/ours/resized_videos_h264/frog_15_0_cam24.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/ours/resized_videos_h264/resized_frog.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted loop playsinline preload="none" style="width: 100%">
+         <source data-src="static/videos/ours/resized_videos_h264/frog_-15_0_cam24.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/ours/resized_videos_h264/frog_15_0_cam24.mp4" type="video/mp4"></video></div>
        </div>
      </div>
      
        <!-- video pages -->
       <div class="video-page" data-page="0">
         <div class="video-grid-one">
-          <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/dy/dy_pixar.mp4" type="video/mp4"></video></div>
+          <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/dy/dy_pixar.mp4" type="video/mp4"></video></div>
         </div>
         <div class="video-grid-three">
-          <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/ours/resized_videos_h264/resized_pixar.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/pixar_-15_0_cam24.mp4" type="video/mp4"></video></div>
-          <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/ours/resized_videos_h264/pixar_15_0_cam24.mp4" type="video/mp4"></video></div>
+          <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/ours/resized_videos_h264/resized_pixar.mp4" type="video/mp4"></video></div>
+          <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/ours/resized_videos_h264/pixar_-15_0_cam24.mp4" type="video/mp4"></video></div>
+          <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/ours/resized_videos_h264/pixar_15_0_cam24.mp4" type="video/mp4"></video></div>
         </div>
       </div>
 
       <!-- video pages -->
      <div class="video-page" data-page="0">
        <div class="video-grid-one">
-         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/dy/steak.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/dy/steak.mp4" type="video/mp4"></video></div>
        </div>
        <div class="video-grid-three">
-         <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/dy/org/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
-         <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
-         <source src="static/videos/dy/out/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
-         <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/dy/in/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/dy/org/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted loop playsinline preload="none" style="width: 100%">
+         <source data-src="static/videos/dy/out/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/dy/in/resized_videos_h264/resized_steak.mp4" type="video/mp4"></video></div>
        </div>
      </div>
       <!-- video pages -->
      <div class="video-page" data-page="0">
        <div class="video-grid-one">
-         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/dy/popcorn.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/dy/popcorn.mp4" type="video/mp4"></video></div>
        </div>
        <div class="video-grid-three">
-         <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/original/resized_videos_h264/resized_popcorn.mp4" type="video/mp4"></video></div>
-         <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-         <source src="static/videos/ours/resized_videos_h264/resized_popcorn_-15_0_cam23.mp4" type="video/mp4"></video></div>
-         <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-           <source src="static/videos/ours/resized_videos_h264/resized_popcorn_15_0_cam23.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/original/resized_videos_h264/resized_popcorn.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted loop playsinline preload="none" style="width: 100%">
+         <source data-src="static/videos/ours/resized_videos_h264/resized_popcorn_-15_0_cam23.mp4" type="video/mp4"></video></div>
+         <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted loop playsinline preload="none" style="width: 100%">
+           <source data-src="static/videos/ours/resized_videos_h264/resized_popcorn_15_0_cam23.mp4" type="video/mp4"></video></div>
        </div>
      </div>
      <!-- video pages -->
     <div class="video-page" data-page="0">
       <div class="video-grid-one">
-        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/old_couple.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/old_couple.mp4" type="video/mp4"></video></div>
       </div>
       <div class="video-grid-three">
-        <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/org/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
-        <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
-        <source src="static/videos/dy/out/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
-        <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/in/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/org/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted loop playsinline preload="none" style="width: 100%">
+        <source data-src="static/videos/dy/out/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/in/resized_videos_h264/resized_old_couple.mp4" type="video/mp4"></video></div>
       </div>
     </div>
 
      <!-- video pages -->
     <div class="video-page" data-page="0">
       <div class="video-grid-one">
-        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/kitten.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/kitten.mp4" type="video/mp4"></video></div>
       </div>
       <div class="video-grid-three">
-        <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4"></video></div>
-        <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-        <source src="static/videos/ours/resized_videos_h264/resized_kitten_-15_0_cam23.mp4" type="video/mp4"></video></div>
-        <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/ours/resized_videos_h264/resized_kitten_15_0_cam23.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/original/resized_videos_h264/resized_kitten.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted loop playsinline preload="none" style="width: 100%">
+        <source data-src="static/videos/ours/resized_videos_h264/resized_kitten_-15_0_cam23.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/ours/resized_videos_h264/resized_kitten_15_0_cam23.mp4" type="video/mp4"></video></div>
       </div>
     </div>
 
      <!-- video pages -->
     <div class="video-page" data-page="0">
       <div class="video-grid-one">
-        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/bus.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/bus.mp4" type="video/mp4"></video></div>
       </div>
       <div class="video-grid-three">
-        <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/org/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
-        <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
-        <source src="static/videos/dy/out/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
-        <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
-          <source src="static/videos/dy/in/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/org/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted loop playsinline preload="none" style="width: 100%">
+        <source data-src="static/videos/dy/out/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
+        <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted loop playsinline preload="none" style="width: 100%">
+          <source data-src="static/videos/dy/in/resized_videos_h264/resized_bus.mp4" type="video/mp4"></video></div>
       </div>
     </div>
 
     <!-- video pages -->
    <div class="video-page" data-page="0">
      <div class="video-grid-one">
-       <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-         <source src="static/videos/dy/cat_heaven.mp4" type="video/mp4"></video></div>
+       <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+         <source data-src="static/videos/dy/cat_heaven.mp4" type="video/mp4"></video></div>
      </div>
      <div class="video-grid-three">
-       <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-         <source src="static/videos/original/resized_videos_h264/resized_cat_heaven.mp4" type="video/mp4"></video></div>
-       <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-       <source src="static/videos/ours/resized_videos_h264/resized_cat_heaven_-15_0_cam23.mp4" type="video/mp4"></video></div>
-       <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-        <source src="static/videos/ours/resized_videos_h264/resized_cat_heaven_15_0_cam23.mp4" type="video/mp4"></video></div>
+       <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+         <source data-src="static/videos/original/resized_videos_h264/resized_cat_heaven.mp4" type="video/mp4"></video></div>
+       <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted loop playsinline preload="none" style="width: 100%">
+       <source data-src="static/videos/ours/resized_videos_h264/resized_cat_heaven_-15_0_cam23.mp4" type="video/mp4"></video></div>
+       <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted loop playsinline preload="none" style="width: 100%">
+        <source data-src="static/videos/ours/resized_videos_h264/resized_cat_heaven_15_0_cam23.mp4" type="video/mp4"></video></div>
      </div>
    </div>
 
    <!-- video pages -->
   <div class="video-page" data-page="0">
     <div class="video-grid-one">
-      <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-        <source src="static/videos/dy/oldman.mp4" type="video/mp4"></video></div>
+      <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+        <source data-src="static/videos/dy/oldman.mp4" type="video/mp4"></video></div>
     </div>
     <div class="video-grid-three">
-      <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-        <source src="static/videos/original/resized_videos_h264/resized_oldman.mp4" type="video/mp4"></video></div>
-      <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted="" autoplay="" loop="" style="width: 100%">
-      <source src="static/videos/ours/resized_videos_h264/resized_oldman_-15_cam23.mp4" type="video/mp4"></video></div>
-      <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted="" autoplay="" loop="" style="width: 100%">
-       <source src="static/videos/ours/resized_videos_h264/resized_oldman_15_cam23.mp4" type="video/mp4"></video></div>
+      <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+        <source data-src="static/videos/original/resized_videos_h264/resized_oldman.mp4" type="video/mp4"></video></div>
+      <div class="video-item"><div class="video-label">Fixed view orbit left</div><video muted loop playsinline preload="none" style="width: 100%">
+      <source data-src="static/videos/ours/resized_videos_h264/resized_oldman_-15_cam23.mp4" type="video/mp4"></video></div>
+      <div class="video-item"><div class="video-label">Fixed view orbit right</div><video muted loop playsinline preload="none" style="width: 100%">
+       <source data-src="static/videos/ours/resized_videos_h264/resized_oldman_15_cam23.mp4" type="video/mp4"></video></div>
     </div>
   </div>
 
   <!-- video pages -->
  <div class="video-page" data-page="0">
    <div class="video-grid-one">
-     <div class="video-item"><div class="video-label">Dynamic view video</div><video muted="" autoplay="" loop="" style="width: 100%">
-       <source src="static/videos/dy/steak_fire.mp4" type="video/mp4"></video></div>
+     <div class="video-item"><div class="video-label">Dynamic view video</div><video muted loop playsinline preload="none" style="width: 100%">
+       <source data-src="static/videos/dy/steak_fire.mp4" type="video/mp4"></video></div>
    </div>
    <div class="video-grid-three">
-     <div class="video-item"><div class="video-label">Input Video</div><video muted="" autoplay="" loop="" style="width: 100%">
-       <source src="static/videos/dy/org/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
-     <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted="" autoplay="" loop="" style="width: 100%">
-     <source src="static/videos/dy/out/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
-     <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted="" autoplay="" loop="" style="width: 100%">
-      <source src="static/videos/dy/in/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
+     <div class="video-item"><div class="video-label">Input Video</div><video muted loop playsinline preload="none" style="width: 100%">
+       <source data-src="static/videos/dy/org/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
+     <div class="video-item"><div class="video-label">Fixed view dolly out</div><video muted loop playsinline preload="none" style="width: 100%">
+     <source data-src="static/videos/dy/out/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
+     <div class="video-item"><div class="video-label">Fixed view dolly in</div><video muted loop playsinline preload="none" style="width: 100%">
+      <source data-src="static/videos/dy/in/resized_videos_h264/resized_steak_fire.mp4" type="video/mp4"></video></div>
    </div>
  </div>
 
@@ -590,27 +636,27 @@
       <div id="video-grid-sets">
         <div class="video-set" id="set-0">
           <div class="video-grid">
-            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_-15/frame0005.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_-15/frame0015.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/pixar_-15/frame0005.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/pixar_-15/frame0015.mp4" type="video/mp4"></video></div>
 
-            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_-15/frame0020.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/pixar_-15/frame0020.mp4" type="video/mp4"></video></div>
 
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_15/frame0005.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_15/frame0015.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/pixar_15/frame0005.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/pixar_15/frame0015.mp4" type="video/mp4"></video></div>
 
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/pixar_15/frame0020.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/pixar_15/frame0020.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%">
-                <source src="static/videos/original/resized_videos_h264/resized_pixar.mp4" type="video/mp4">
+              <video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/original/resized_videos_h264/resized_pixar.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -618,24 +664,24 @@
 
         <div class="video-set" id="set-1">
           <div class="video-grid">
-            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/frog_-15/frog_frame0001.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/frog_-15/frog_frame0005.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/frog_-15/frog_frame0023.mp4" type="video/mp4"></video></div>
-              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-                <source src="static/videos/bullet_time/frog_15/frog_frame0001.mp4" type="video/mp4"></video></div>
-              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-                <source src="static/videos/bullet_time/frog_15/frog_frame0005.mp4" type="video/mp4"></video></div>
-              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-                <source src="static/videos/bullet_time/frog_15/frog_frame0023.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/frog_-15/frog_frame0001.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/frog_-15/frog_frame0005.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/frog_-15/frog_frame0023.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/bullet_time/frog_15/frog_frame0001.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/bullet_time/frog_15/frog_frame0005.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/bullet_time/frog_15/frog_frame0023.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%">
-                <source src="static/videos/ours/resized_videos_h264/resized_frog.mp4" type="video/mp4">
+              <video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/ours/resized_videos_h264/resized_frog.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -643,24 +689,24 @@
 
         <div class="video-set" id="set-2">
           <div class="video-grid">
-            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/oldman_-15_0/oldman_frame5_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/oldman_-15_0/oldman_frame15_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/oldman_-15_0/oldman_frame20_resized_resized.mp4" type="video/mp4"></video></div>
-              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-                <source src="static/videos/bullet_time/oldman_15_0/oldman_frame5_resized_resized.mp4" type="video/mp4"></video></div>
-              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-                <source src="static/videos/bullet_time/oldman_15_0/oldman_frame15_resized_resized.mp4" type="video/mp4"></video></div>
-              <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-                <source src="static/videos/bullet_time/oldman_15_0/oldman_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/oldman_-15_0/oldman_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/oldman_-15_0/oldman_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/oldman_-15_0/oldman_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/bullet_time/oldman_15_0/oldman_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/bullet_time/oldman_15_0/oldman_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+              <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/bullet_time/oldman_15_0/oldman_frame20_resized_resized.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%">
-                <source src="static/videos/original/resized_videos_h264/resized_oldman.mp4" type="video/mp4">
+              <video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/original/resized_videos_h264/resized_oldman.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -668,24 +714,24 @@
 
         <div class="video-set" id="set-3">
           <div class="video-grid">
-            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame5.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame10.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame20.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/cat_heaven_15_0/resized_cat_heaven_frame5.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/cat_heaven_15_0/resized_cat_heaven_frame10.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/cat_heaven_15_0/resized_cat_heaven_frame20.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame5.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame10.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/cat_heaven_-15_0/resized_cat_heaven_frame20.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/cat_heaven_15_0/resized_cat_heaven_frame5.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/cat_heaven_15_0/resized_cat_heaven_frame10.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/cat_heaven_15_0/resized_cat_heaven_frame20.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%">
-                <source src="static/videos/original/resized_videos_h264/resized_cat_heaven.mp4" type="video/mp4">
+              <video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/original/resized_videos_h264/resized_cat_heaven.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -693,24 +739,24 @@
 
         <div class="video-set" id="set-4">
           <div class="video-grid">
-            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame5_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame15_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame20_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/astronaut_baby_15_0/astronaut_baby_frame5_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/astronaut_baby_15_0/astronaut_baby_frame15_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/astronaut_baby_15_0/astronaut_baby_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/astronaut_baby_-15_0/astronaut_baby_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/astronaut_baby_15_0/astronaut_baby_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/astronaut_baby_15_0/astronaut_baby_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/astronaut_baby_15_0/astronaut_baby_frame20_resized_resized.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%">
-                <source src="static/videos/original/resized_videos_h264/resized_astronaut_baby.mp4" type="video/mp4">
+              <video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/original/resized_videos_h264/resized_astronaut_baby.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -721,24 +767,24 @@
           
           <div class="video-grid">
             
-            <div class="video-item"><div class="video-label">Time index 1</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/clock_-15_0/clock_frame5_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 2</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/clock_-15_0/clock_frame15_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><div class="video-label">Time index 3</div><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/clock_-15_0/clock_frame20_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/clock_15_0/clock_frame5_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/clock_15_0/clock_frame15_resized_resized.mp4" type="video/mp4"></video></div>
-            <div class="video-item"><video muted="" autoplay="" loop="" style="width: 100%">
-              <source src="static/videos/bullet_time/clock_15_0/clock_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 1</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/clock_-15_0/clock_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 2</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/clock_-15_0/clock_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><div class="video-label">Time index 3</div><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/clock_-15_0/clock_frame20_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/clock_15_0/clock_frame5_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/clock_15_0/clock_frame15_resized_resized.mp4" type="video/mp4"></video></div>
+            <div class="video-item"><video muted loop playsinline preload="none" style="width: 100%">
+              <source data-src="static/videos/bullet_time/clock_15_0/clock_frame20_resized_resized.mp4" type="video/mp4"></video></div>
 
           </div>
           <div class="single-video-row">
             <div class="video-item-row"><div class="video-label">Input Video</div>
-              <video muted autoplay loop style="width: 100%"∏>
-                <source src="static/videos/original/resized_videos_h264/resized_clock.mp4" type="video/mp4">
+              <video muted loop playsinline preload="none" style="width: 100%">
+                <source data-src="static/videos/original/resized_videos_h264/resized_clock.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -793,29 +839,29 @@
         <!-- Videos -->
         <div class="video-item">
           <div class="vid-des"><mark><span class="title-highlight">Zero4d</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/fixed_view/zero4d_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryCrafter</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryAttention</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/fixed_view/trjattn_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/fixed_view/trjattn_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>CameraCtrl</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/fixed_view/camctrl_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -830,26 +876,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label"> Bullet time video - Time 1</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/zero4d_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/zero4d_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/trjattn_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/trjattn_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/camctrl_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/camctrl_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -858,26 +904,26 @@
         <div class="row-label"> Bullet time video - Time 2</div>
         <!-- Video grid old man bullet 2  -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/zero4d_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/zero4d_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/trjattn_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/trjattn_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/old_man/bullet_time/camctrl_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/old_man/bullet_time/camctrl_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -888,29 +934,29 @@
         <div class="row-label">Fixed novel-view video from bullet time videos</div>
         <div class="video-item">
           <div class="vid-des"><mark><span class="title-highlight">Zero4D</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/fixed_view/zero4d_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryCrafter</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryAttention</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/fixed_view/trjattn_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/fixed_view/trjattn_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>CameraCtrl</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/fixed_view/camctrl_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -925,26 +971,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label"> Bullet time video - Time 1</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/zero4d_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/zero4d_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjattn_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/trjattn_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/camctrl_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/camctrl_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -954,26 +1000,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label"> Bullet time video - Time 2</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/zero4d_frame15.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/zero4d_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjcrft_frame15.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/trjcrft_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/trjattn_frame15.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/trjattn_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/astronaut_baby/bullet_time/camctrl_frame15.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/astronaut_baby/bullet_time/camctrl_frame15.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -984,29 +1030,29 @@
         <div class="row-label">Fixed novel-view video from bullet time videos</div>
         <div class="video-item">
           <div class="vid-des"><mark><span class="title-highlight">Zero4D</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/fixed_view/zero4d_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryCrafter</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryAttention</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/fixed_view/trjattn_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/fixed_view/trjattn_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>CameraCtrl</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/fixed_view/camctrl_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1021,26 +1067,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label">Bullet time video - Time 1</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/zero4d_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/zero4d_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/trjcrft_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/trjattn_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/trjattn_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/camctrl_frame05.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/camctrl_frame05.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1050,26 +1096,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label"> Bullet time video - Time 2</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/zero4d_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/zero4d_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/trjattn_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/trjattn_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/cat_heaven/bullet_time/camctrl_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/cat_heaven/bullet_time/camctrl_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1080,29 +1126,29 @@
         <div class="row-label">Fixed novel-view video from bullet time videos</div>
         <div class="video-item">
           <div class="vid-des"><mark><span class="title-highlight">Zero4D</span> <b>(Ours)</b></mark></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/fixed_view/zero4d_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/fixed_view/zero4d_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryCrafter</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/fixed_view/trjcrft_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>TrajectoryAttention</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/fixed_view/trjattn_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/fixed_view/trjattn_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des"><b>CameraCtrl</b></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/fixed_view/camctrl_cam20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/fixed_view/camctrl_cam20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1116,26 +1162,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label">Bullet time video - Time 1</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/zero4d_frame00.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/zero4d_frame00.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/trjcrft_frame00.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/trjcrft_frame00.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/trjattn_frame00.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/trjattn_frame00.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/camctrl_frame00.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/camctrl_frame00.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1145,26 +1191,26 @@
       <div class="video-grid-four bullet_time_1" style="width: 90%; margin: 0 auto;">
         <div class="row-label"> Bullet time video - Time 2</div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/zero4d_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/zero4d_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/trjcrft_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/trjattn_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/trjattn_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/comparison/popcorn/bullet_time/camctrl_frame20.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/comparison/popcorn/bullet_time/camctrl_frame20.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1185,211 +1231,211 @@
         <!-- Videos -->
         <div class="video-item">
           <div class="vid-des">Input video<br></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/surf/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/surf/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des">Fixed time 1<br></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/surf/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/surf/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des">Fixed time 2<br></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/surf/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/surf/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
           <div class="vid-des">Novel-view video<br></div>
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/surf/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/surf/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
 
         <!-- Videos -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/cat_doll/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/cat_doll/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/cat_doll/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/cat_doll/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/cat_doll/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/cat_doll/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/cat_doll/new.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <!-- Videos -->
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/clock/org.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/clock/time1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/clock/time2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/clock/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/cat_doll/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
 
         <!-- Videos -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/boat/org/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/clock/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/boat/time1/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/clock/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/boat/time2/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/clock/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/boat/new/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/clock/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
 
         <!-- Videos -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/train/org/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/boat/org/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/train/time1/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/boat/time1/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/train/time2/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/boat/time2/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/train/new/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/boat/new/new.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-item">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/train/org/org.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/train/time1/time1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/train/time2/time2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-item">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/train/new/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         
         <!-- Videos -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/man_guitar/org/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/man_guitar/org/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/man_guitar/time1/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/man_guitar/time1/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/man_guitar/time2/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/man_guitar/time2/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/man_guitar/new/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/man_guitar/new/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         
         <!-- Videos -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/bike/org/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/bike/org/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/bike/time1/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/bike/time1/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/bike/time2/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/bike/time2/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/bike/new/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/bike/new/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
 
         <!-- Videos -->
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/running_beach/org/org.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/running_beach/org/org.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/running_beach/time1/time1.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/running_beach/time1/time1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/running_beach/time2/time2.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/running_beach/time2/time2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-item">
-          <video muted="" autoplay="" loop="" style="width: 100%">
-            <source src="static/videos/more_results/new_jpeg/running_beach/new/new.mp4" type="video/mp4">
+          <video muted loop playsinline preload="none" style="width: 100%">
+            <source data-src="static/videos/more_results/new_jpeg/running_beach/new/new.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1405,16 +1451,50 @@
   <script>
     // Global flag to track playing state for Enter key toggle
     let videosPlaying = true;
-    
+
+    // --- Lazy loading & playback management ---
+    // Each <video> keeps its URL in <source data-src> and stays unloaded until
+    // it nears the viewport, so the browser never downloads all 160+ clips up front.
+    const visibleVideos = new Set();
+
+    function loadVideo(video) {
+      if (video.dataset.loaded) return;
+      const source = video.querySelector('source[data-src]');
+      if (!source) return;
+      source.src = source.dataset.src;
+      video.load();
+      video.dataset.loaded = "1";
+    }
+
+    function playVideo(video) {
+      loadVideo(video);
+      const p = video.play();
+      if (p) p.catch(() => {});
+    }
+
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          visibleVideos.add(video);
+          if (videosPlaying) playVideo(video);
+        } else {
+          visibleVideos.delete(video);
+          video.pause();
+        }
+      });
+    }, { rootMargin: "300px 0px", threshold: 0.01 });
+
+    document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+
     document.addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
-        const videos = document.querySelectorAll("video");
         if (videosPlaying) {
-          videos.forEach(video => video.pause());
+          document.querySelectorAll("video").forEach(video => video.pause());
           videosPlaying = false;
         } else {
-          videos.forEach(video => video.play());
           videosPlaying = true;
+          visibleVideos.forEach(playVideo);
         }
       }
     });
@@ -1476,13 +1556,8 @@
       videoSets.forEach((set, index) => {
         set.style.display = (index === 0) ? 'block' : 'none';
       });
-
-      const firstVideos = videoSets[0].querySelectorAll('video');
-      firstVideos.forEach(video => {
-        video.pause();
-        video.currentTime = 0;
-        video.play();
-      });
+      // Playback is driven by the IntersectionObserver; the visible set starts
+      // automatically once it scrolls into view.
     });
 
     // ✅ 썸네일 클릭 시 동작
@@ -1497,11 +1572,12 @@
         // 선택한 set의 모든 비디오 초기화 후 재생
         const currentVideos = document.querySelector(`#${targetId}`).querySelectorAll('video');
         currentVideos.forEach(video => {
+          loadVideo(video);
           video.pause();
           video.currentTime = 0;
         });
         setTimeout(() => {
-          currentVideos.forEach(video => video.play());
+          currentVideos.forEach(playVideo);
         }, 100);
       });
     });
